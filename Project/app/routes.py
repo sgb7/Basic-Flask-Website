@@ -1,7 +1,7 @@
+from flask import render_template
 from app import app
 
 @app.route('/')
-@app.route('/all')
-def all():
-    return "My website: "
+def home():
+    return render_template("home.html")
 
