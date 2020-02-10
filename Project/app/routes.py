@@ -9,11 +9,7 @@ def home():
 @app.route('/all')
 def all():
     return render_template("all.html")
-
-@app.route('/testing')
-def testing():
-    return render_template("experiment.html")
-
+    
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
