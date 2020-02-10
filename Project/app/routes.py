@@ -6,9 +6,9 @@ from app.forms import LoginForm
 def home():
     return render_template("home.html")
 
-@app.route('/edit')
-def edit():
-    return render_template("edit.html")
+@app.route('/all')
+def all():
+    return render_template("all.html")
 
 @app.route('/testing')
 def testing():
