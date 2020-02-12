@@ -1,8 +1,7 @@
 from flask import render_template, flash, redirect, url_for, make_response
 from app import app
 from app.forms import LoginForm
-from os import listdir
-from os.path import isfile, join
+import os
 
 @app.route('/home')
 def home():
@@ -10,8 +9,8 @@ def home():
 
 @app.route('/all')
 def all():
-    onlyfiles = [f for f in listdir(mypath) if isfile(join(mypath,f))]
-    return render_template("all.html")
+    pages = os.listdir()
+    return render_template("all.html", pages=pages)
     
 @app.route('/login', methods=['GET', 'POST'])
 def login():
