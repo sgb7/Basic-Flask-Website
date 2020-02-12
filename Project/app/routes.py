@@ -1,6 +1,8 @@
 from flask import render_template, flash, redirect, url_for, make_response
 from app import app
 from app.forms import LoginForm
+from os import listdir
+from os.path import isfile, join
 
 @app.route('/home')
 def home():
@@ -8,6 +10,7 @@ def home():
 
 @app.route('/all')
 def all():
+    onlyfiles = [f for f in listdir(mypath) if isfile(join(mypath,f))]
     return render_template("all.html")
     
 @app.route('/login', methods=['GET', 'POST'])
@@ -18,9 +21,8 @@ def login():
         return redirect(url_for('home'))
     return render_template('login.html', title = 'Sign In', form = form)
 
-@app.route('/edit/home')#, methods=['POST'])
-def edit():
-	resp = make_response(render_template('home.html'))
-	resp.mimetype = 'text/plain'
-	#return resp
-	return render_template("edit.html")
+@app.route('/edit/<page_name>')
+def edit(page_name):
+	return render_template("edit.html", page_name = render_template(page_name + '.html'))
+
+
