@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -6,10 +6,11 @@
   <meta name="description" content="My Web Site">
 </head>
 <body>
-    <ul>
-        {% for item in data["pages"] %}
-            <li><a href="/{{item}}">{{item}}</a></li>
-        {% endfor %}
-    </ul>
+    Index:<
+    <a href="{{ url_for('home') }}">Home</a>
+    <b/>
+    <a href="{{ url_for('login') }}">Login</a>
+    <b/>
+    <a href="{{ url_for('all') }}">Index</a>
 </body>
 </html>
