@@ -10,8 +10,8 @@ def home():
 
 @app.route('/all')
 def all():
-    #mypath = '/Desktop/Bin/Basic-Flask-Website/Project/app/templates'
-    #pages = [f for f in listdir(mypath) if isfile(join(mypath,f))]
+    mypath = '/Users/sgb7/Desktop/Bin/Basic-Flask-Website/Project/app/templates'
+    pages = [f for f in listdir(mypath) if isfile(join(mypath,f))]
     return render_template("all.html", pages=pages)
     
 @app.route('/login', methods=['GET', 'POST'])
