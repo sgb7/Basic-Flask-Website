@@ -7,8 +7,11 @@
 </head>
 <body>
     <ul>
-        {% for file in pages%}
+        <!--{% for file in pages%}
             <li><a href="/{{file}}">{{file}}</a></li>
+        {% endfor %}-->
+        {% for file in pages%}
+            <li><a href="/{{file.replace('.html', '')}}">{{file.replace('.html', '')}}</a></li>
         {% endfor %}
     </ul>
 </body>
